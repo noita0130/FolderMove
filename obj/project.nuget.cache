@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HvakiL4K6tXDifRwAxgHI2iSYNCcF1AJy2dMChz7zC/qI6/P+VlQwE70Bg1QMW93eIbMqE01PZRCoMfo5uBnuQ==",
+  "dgSpecHash": "k7bGUaeSxHCKcXX/g+27oNjiEP609+R6bivNug90qmzbxkEzxysCh4P9aeUlxT7NDB2fSTYwUgs4nBbB1PJcFw==",
   "success": true,
-  "projectFilePath": "D:\\User\\Desktop\\G\\깃헙\\코드\\FolderMove\\FolderMove\\FolderMove.csproj",
+  "projectFilePath": "D:\\User\\Desktop\\G\\깃헙\\코드\\FolderMove - 복사본\\FolderMove\\FolderMove.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kim\\.nuget\\packages\\metroframework\\1.2.0.3\\metroframework.1.2.0.3.nupkg.sha512",
     "C:\\Users\\kim\\.nuget\\packages\\metroframework.design\\1.2.0.3\\metroframework.design.1.2.0.3.nupkg.sha512",
