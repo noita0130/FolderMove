@@ -131,7 +131,7 @@
             organizebtn.TabIndex = 0;
             organizebtn.Text = "정리하기";
             organizebtn.UseVisualStyleBackColor = true;
-            organizebtn.Click += organizebtn_Click;
+            organizebtn.Click += btnOrganize_Click;
             // 
             // openbtn
             // 
