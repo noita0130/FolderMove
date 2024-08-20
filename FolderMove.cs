@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace FolderMove
 {
-    public partial class FolderMove : MetroFramework.Forms.MetroForm
+    public partial class FolderMove : Form
     {
 
         private const string SettingsFileName = "FolderOrganizerSettings.xml"; //불러왔던 폴더 기억하는 파일
@@ -50,7 +50,7 @@ namespace FolderMove
                     UpdateFolderList(selectedPath); // textbox 에 폴더목록 갱신
                 }
             }
-        } 
+        }
 
         private async void btnOrganize_Click(object sender, EventArgs e) // 정리버튼 작동
         {
@@ -171,17 +171,17 @@ namespace FolderMove
 
         private async Task UpdateFolderListAsync(string path)
         {
-            if (Directory.Exists(path))
+            if (Directory.Exists(path)) // 경로 존재
             {
                 string[] directories = await Task.Run(() => Directory.GetDirectories(path));
-                StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder(); // 문자열을 조작가능
                 int foldercount = directories.Length;
                 sb.AppendLine($"폴더 및 파일 개수: {foldercount}");
                 foreach (string dir in directories)
                 {
-                    sb.AppendLine(new DirectoryInfo(dir).Name);
+                    sb.AppendLine(new DirectoryInfo(dir).Name); // 폴더이름을 새 줄에 추가
                 }
-                UpdateFolderListBoxText(sb.ToString());
+                UpdateFolderListBoxText(sb.ToString()); // 리스트 업데이트
             }
             else
             {
@@ -226,53 +226,53 @@ namespace FolderMove
             int totalDirectories = directories.Length; // 디렉토리 배열의 길이
             int processedDirectories = 0; // 프로그레스 바
 
-            
-                foreach (string dir in directories) // directories 를 dir 로 사용화여 요소 끝날때까지 반복
+
+            foreach (string dir in directories) // directories 를 dir 로 사용화여 요소 끝날때까지 반복
+            {
+                string dirName = new DirectoryInfo(dir).Name; // 디렉토리의 이름반환
+                Match match = Regex.Match(dirName, @"\[(.*?)\]"); // 디렉토리에서 [] 사이에있는 글자인식
+
+                if (match.Success) // 성공하면
                 {
-                    string dirName = new DirectoryInfo(dir).Name; // 디렉토리의 이름반환
-                    Match match = Regex.Match(dirName, @"\[(.*?)\]"); // 디렉토리에서 [] 사이에있는 글자인식
+                    string category = match.Groups[1].Value; // 대괄호를 포함한 카테고리 이름 생성
+                    string categoryWithBrackets = $"[{category}]"; // 폴더이름지정
+                    string newCategoryPath = Path.Combine(rootPath, categoryWithBrackets); // 폴더조합
 
-                    if (match.Success) // 성공하면
+                    if (!Directory.Exists(newCategoryPath))
                     {
-                        string category = match.Groups[1].Value; // 대괄호를 포함한 카테고리 이름 생성
-                        string categoryWithBrackets = $"[{category}]"; // 폴더이름지정
-                        string newCategoryPath = Path.Combine(rootPath, categoryWithBrackets); // 폴더조합
-
-                        if (!Directory.Exists(newCategoryPath))
-                        {
-                            Directory.CreateDirectory(newCategoryPath);
-                        }
-
-                        string newPath = Path.Combine(newCategoryPath, dirName);
-
-                        // 이미 같은 이름의 폴더가 존재하는 경우 처리
-                        if (Directory.Exists(newPath))
-                        {
-                            int counter = 1;
-                            string tempPath = newPath;
-                            while (Directory.Exists(tempPath))
-                            {
-                                tempPath = Path.Combine(newCategoryPath, $"{dirName} ({counter})");
-                                // [aa] 중복시 [aa] 1 이런식으로 생성
-                                counter++;
-                            }
-                            newPath = tempPath;
-                        }
-                        Trace.WriteLine(dirName);
-                        Directory.Move(dir, newPath); // 새로생성된 경로로 이동
+                        Directory.CreateDirectory(newCategoryPath);
                     }
 
-                    // 진행 상태 업데이트
-                    processedDirectories++;
-                    int progressPercentage = (int)((processedDirectories / (double)totalDirectories) * 100);
-                    this.Invoke(new Action(() => progressBar1.Value = progressPercentage));
+                    string newPath = Path.Combine(newCategoryPath, dirName);
+
+                    // 이미 같은 이름의 폴더가 존재하는 경우 처리
+                    if (Directory.Exists(newPath))
+                    {
+                        int counter = 1;
+                        string tempPath = newPath;
+                        while (Directory.Exists(tempPath))
+                        {
+                            tempPath = Path.Combine(newCategoryPath, $"{dirName} ({counter})");
+                            // [aa] 중복시 [aa] 1 이런식으로 생성
+                            counter++;
+                        }
+                        newPath = tempPath;
+                    }
+                    Trace.WriteLine(dirName);
+                    Directory.Move(dir, newPath); // 새로생성된 경로로 이동
                 }
 
-                MessageBox.Show("폴더 정리가 완료되었습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // 작업 완료 후 100%로 설정
-                this.Invoke(new Action(() => progressBar1.Value = 100));
+                // 진행 상태 업데이트
+                processedDirectories++;
+                int progressPercentage = (int)((processedDirectories / (double)totalDirectories) * 100);
+                this.Invoke(new Action(() => progressBar1.Value = progressPercentage));
+            }
 
-            
+            MessageBox.Show("폴더 정리가 완료되었습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // 작업 완료 후 100%로 설정
+            this.Invoke(new Action(() => progressBar1.Value = 100));
+
+
         }
 
         private void SaveSettings() // 저장
