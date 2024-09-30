@@ -1,0 +1,17 @@
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\bin\Debug\net8.0-windows\FolderMove.exe
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\bin\Debug\net8.0-windows\FolderMove.deps.json
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\bin\Debug\net8.0-windows\FolderMove.runtimeconfig.json
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\bin\Debug\net8.0-windows\FolderMove.dll
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\bin\Debug\net8.0-windows\FolderMove.pdb
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.FolderMove.resources
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.csproj.GenerateResource.cache
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.GeneratedMSBuildEditorConfig.editorconfig
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.AssemblyInfoInputs.cache
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.AssemblyInfo.cs
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.csproj.CoreCompileInputs.cache
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.sourcelink.json
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.dll
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\refint\FolderMove.dll
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.pdb
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\FolderMove.genruntimeconfig.cache
+D:\User\Desktop\G\깃헙\코드\FolderMove - 복사본 - 복사본\FolderMove\obj\Debug\net8.0-windows\ref\FolderMove.dll

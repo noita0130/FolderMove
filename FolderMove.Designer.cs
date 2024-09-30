@@ -33,10 +33,11 @@
             Pathdisplay = new ComboBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             progressBar1 = new ProgressBar();
+            FolderListBox = new TextBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             organizebtn = new Button();
             openbtn = new Button();
-            FolderListBox = new TextBox();
+            refbutton = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -54,13 +55,13 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(879, 34);
+            tableLayoutPanel1.Size = new Size(901, 34);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // browsebutton
             // 
             browsebutton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            browsebutton.Location = new Point(832, 4);
+            browsebutton.Location = new Point(854, 4);
             browsebutton.Name = "browsebutton";
             browsebutton.Size = new Size(44, 26);
             browsebutton.TabIndex = 0;
@@ -74,7 +75,7 @@
             Pathdisplay.FormattingEnabled = true;
             Pathdisplay.Location = new Point(3, 5);
             Pathdisplay.Name = "Pathdisplay";
-            Pathdisplay.Size = new Size(823, 23);
+            Pathdisplay.Size = new Size(845, 23);
             Pathdisplay.TabIndex = 1;
             Pathdisplay.SelectedIndexChanged += Pathdisplay_SelectedIndexChanged;
             // 
@@ -84,17 +85,17 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(progressBar1, 0, 1);
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 2);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 0);
             tableLayoutPanel2.Controls.Add(FolderListBox, 0, 2);
-            tableLayoutPanel2.Location = new Point(23, 28);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 3);
+            tableLayoutPanel2.Location = new Point(12, 12);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.Size = new Size(885, 604);
+            tableLayoutPanel2.Size = new Size(907, 631);
             tableLayoutPanel2.TabIndex = 2;
             // 
             // progressBar1
@@ -103,46 +104,8 @@
             progressBar1.Location = new Point(6, 43);
             progressBar1.Margin = new Padding(6, 3, 6, 3);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(873, 23);
+            progressBar1.Size = new Size(895, 23);
             progressBar1.TabIndex = 3;
-            // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel3.ColumnCount = 3;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
-            tableLayoutPanel3.Controls.Add(organizebtn, 2, 0);
-            tableLayoutPanel3.Controls.Add(openbtn, 1, 0);
-            tableLayoutPanel3.Location = new Point(3, 567);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(879, 34);
-            tableLayoutPanel3.TabIndex = 3;
-            // 
-            // organizebtn
-            // 
-            organizebtn.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            organizebtn.Location = new Point(792, 5);
-            organizebtn.Name = "organizebtn";
-            organizebtn.Size = new Size(84, 24);
-            organizebtn.TabIndex = 0;
-            organizebtn.Text = "정리하기";
-            organizebtn.UseVisualStyleBackColor = true;
-            organizebtn.Click += btnOrganize_Click;
-            // 
-            // openbtn
-            // 
-            openbtn.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            openbtn.Location = new Point(702, 5);
-            openbtn.Name = "openbtn";
-            openbtn.Size = new Size(84, 24);
-            openbtn.TabIndex = 0;
-            openbtn.Text = "폴더열기";
-            openbtn.UseVisualStyleBackColor = true;
-            openbtn.Click += openbtn_Click;
             // 
             // FolderListBox
             // 
@@ -154,9 +117,63 @@
             FolderListBox.Name = "FolderListBox";
             FolderListBox.ReadOnly = true;
             FolderListBox.ScrollBars = ScrollBars.Both;
-            FolderListBox.Size = new Size(873, 488);
+            FolderListBox.Size = new Size(895, 515);
             FolderListBox.TabIndex = 2;
             FolderListBox.WordWrap = false;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel3.ColumnCount = 4;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Controls.Add(organizebtn, 3, 0);
+            tableLayoutPanel3.Controls.Add(openbtn, 2, 0);
+            tableLayoutPanel3.Controls.Add(refbutton, 1, 0);
+            tableLayoutPanel3.Location = new Point(3, 594);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(901, 34);
+            tableLayoutPanel3.TabIndex = 3;
+            // 
+            // organizebtn
+            // 
+            organizebtn.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            organizebtn.Location = new Point(814, 5);
+            organizebtn.Name = "organizebtn";
+            organizebtn.Size = new Size(84, 24);
+            organizebtn.TabIndex = 0;
+            organizebtn.Text = "정리하기";
+            organizebtn.UseVisualStyleBackColor = true;
+            organizebtn.Click += btnOrganize_Click;
+            // 
+            // openbtn
+            // 
+            openbtn.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            openbtn.Location = new Point(724, 5);
+            openbtn.Name = "openbtn";
+            openbtn.Size = new Size(84, 24);
+            openbtn.TabIndex = 0;
+            openbtn.Text = "폴더열기";
+            openbtn.UseVisualStyleBackColor = true;
+            openbtn.Click += openbtn_Click;
+            // 
+            // refbutton
+            // 
+            refbutton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            refbutton.Location = new Point(634, 5);
+            refbutton.Name = "refbutton";
+            refbutton.Size = new Size(84, 24);
+            refbutton.TabIndex = 0;
+            refbutton.Text = "새로고침";
+            refbutton.UseVisualStyleBackColor = true;
+            refbutton.Click += refreshbutton_clicked;
             // 
             // FolderMove
             // 
@@ -166,6 +183,7 @@
             Controls.Add(tableLayoutPanel2);
             MinimumSize = new Size(300, 300);
             Name = "FolderMove";
+            Text = "파일이동";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
@@ -183,5 +201,6 @@
         private TableLayoutPanel tableLayoutPanel3;
         private Button openbtn;
         private ProgressBar progressBar1;
+        private Button refbutton;
     }
 }
